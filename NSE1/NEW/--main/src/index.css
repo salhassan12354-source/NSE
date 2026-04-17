@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #0B1D35;
+  --color-accent: #139BA0;
+  --color-success: #34a853;
+}
+
+@layer base {
+  :root {
+    --teal: #139BA0;
+    --teal-dark: #0B1D35;
+    --teal-light: #e8f5f3;
+    --orange: #e8722a;
+    --orange-light: #fff3ec;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f4;
+    --gray-200: #e8eaed;
+    --gray-300: #dadce0;
+    --gray-500: #9aa0a6;
+    --gray-700: #5f6368;
+    --gray-900: #202124;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.12);
+    --radius: 8px;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#f1f3f4] text-[#202124];
+    direction: rtl;
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply min-h-[600px] flex flex-col font-sans text-sm;
+  }
+
+  .top-bar {
+    @apply bg-white text-[var(--gray-700)] flex justify-between items-center px-4 h-[60px] shrink-0 border-b border-[var(--gray-200)];
+  }
+
+  .sidebar {
+    @apply w-[220px] bg-[var(--white)] border-l border-[var(--gray-200)] flex flex-col p-4 gap-3.5 shrink-0;
+  }
+
+  .student-card {
+    @apply flex flex-col items-center gap-1.5 pb-3.5 border-b border-[var(--gray-200)];
+  }
+
+  .avatar-circle {
+    @apply w-[52px] h-[52px] rounded-full bg-[var(--gray-200)] flex items-center justify-center text-[var(--gray-500)] overflow-hidden;
+  }
+
+  .q-btn {
+    @apply w-full aspect-square border border-[var(--gray-300)] rounded-md bg-[var(--white)] text-xs font-medium text-[var(--gray-700)] cursor-pointer flex items-center justify-center transition-all duration-150;
+  }
+
+  .q-btn:hover { @apply bg-[var(--teal-light)] border-[var(--teal)]; }
+  .q-btn.active { @apply bg-[var(--orange)] border-[var(--orange)] text-white; }
+  .q-btn.answered { @apply bg-[var(--teal)] border-[var(--teal)] text-white; }
+  .q-btn.bookmarked { @apply bg-[var(--orange-light)] border-[var(--orange)]; }
+
+  .option-card {
+    @apply bg-[var(--white)] border-[1.5px] border-[var(--gray-200)] rounded-[var(--radius)] p-3.5 md:p-5 cursor-pointer flex justify-between items-center text-base text-[var(--gray-900)] transition-all duration-150 shadow-[var(--shadow-sm)];
+  }
+
+  .option-card:hover { @apply border-[var(--teal)] bg-[var(--teal-light)]; }
+  .option-card.selected { @apply border-[var(--teal)] bg-[var(--teal-light)]; }
+
+  .option-radio {
+    @apply w-[18px] h-[18px] rounded-full border-2 border-[var(--gray-300)] shrink-0 flex items-center justify-center transition-all duration-150;
+  }
+
+  .option-card.selected .option-radio { @apply border-[var(--teal)] bg-[var(--teal)]; }
+  .option-card.selected .option-radio::after { content: ''; @apply w-1.5 h-1.5 rounded-full bg-white; }
+
+  .nav-btn {
+    @apply px-5 py-2 rounded-md font-semibold text-sm cursor-pointer border-none transition-all duration-150;
+  }
+
+  .timer-box {
+    @apply bg-white/15 rounded-md px-3 py-1 text-base font-bold tracking-widest tabular-nums;
+  }
+
+  .font-btn {
+    @apply w-7 h-7 rounded-sm border border-[var(--gray-300)] bg-white flex items-center justify-center text-[11px] font-bold text-[var(--gray-700)] hover:bg-[var(--gray-100)] transition-all;
+  }
+}
